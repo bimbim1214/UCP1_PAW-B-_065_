@@ -1,11 +1,11 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import mobilroute from "./routes/bibit.js";
-import hewanRoutes from "./routes/pupuk.js";
+import bibitroute from "./routes/bibit.js";
+import pupukRoutes from "./routes/pupuk.js";
 import todoRoutes from "./routes/todo.js";
 
 const app = express();
-const PORT = 8000;
+const PORT = 9000;
 //const express = require('express');
 //const hewanRoutes = require('./routes/hewan.js');
 
@@ -19,7 +19,8 @@ app.use(express.json());
 //     res.render('index');
 // });
 
-app.use("/mobil", mobilroute);
+app.use("/pupuk", pupukRoutes);
+app.use("/bibit", bibitroute);
 app.get("/", (req, res) => {
     console.log(["GET ROUTE"]);
     res.send("Selamat Pagi")
