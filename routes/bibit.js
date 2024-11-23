@@ -22,3 +22,16 @@ router.get("/", (req, res) => {
 
 });
 
+router.post('/', (req, res) => { 
+    const newBibit = { 
+        id: bibit.length + 1, 
+        namabibit: req.body.namabibit, 
+        jenisBibit: req.body.jenisBibit, 
+        JumlahStok: req.body.JumlahStok,
+        tahun: req.body.tahun
+        //completed: false 
+    }; 
+    bibit.push(newbibit); 
+    res.status(201).json(newbibit); 
+}); 
+ 
