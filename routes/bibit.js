@@ -17,3 +17,8 @@ const bibit = [
         tahun: 2027
     },
 ];
+router.get("/", (req, res) => {
+    res.send(bibit);
+
+});
+
