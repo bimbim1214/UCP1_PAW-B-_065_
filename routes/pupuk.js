@@ -54,4 +54,12 @@ router.put('/:id', (req, res) => {
     }); 
 }); 
  
-
+router.delete('/:id', (req, res) => { 
+    const pupukIndex = pupuk.findIndex(t => t.id === parseInt(req.params.id)); 
+    if (pupukIndex === -1) return res.status(404).json({ message: 'pupuk tidak ditemukan' }); 
+ 
+    const deletepupuk = pupuk.splice(pupukIndex, 1)[0]; // Menghapus dan menyimpan todo yang dihapus 
+    res.status(200).json({ message: `Tugas '${deletepupuk.namapupuk}' telah dihapus` }); 
+ 
+}); 
+export default router;
