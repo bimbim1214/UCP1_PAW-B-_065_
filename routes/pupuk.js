@@ -3,21 +3,17 @@ const router = express.Router();
 
 const pupuk = [
     {
+        id: 1,
         namapupuk  : "MPK",
         jenispupuk: "pupuk sawit",
         jumlahstok: "100",
-        umurpupuk: "10thn"
+        tahun: 2018
     },
     {
+        id: 2,
         namapupuk  : "Dolomit",
         jenispupuk: "tahan asam",
         jumlahstok: "100",
-        umurpupuk: "5thn"
+        tahun: 2017
     },
 ];
-router.get("/", (req, res) => {
-    res.send(hewan);
-});
-
-
-export default router;
