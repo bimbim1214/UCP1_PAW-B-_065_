@@ -35,3 +35,22 @@ router.post('/', (req, res) => {
     res.status(201).json(newbibit); 
 }); 
  
+router.put('/:id', (req, res) => { 
+    const bibitIndex = bibit.find(t => t.id === parseInt(req.params.id)); 
+    if (!bibitIndex === -1) 
+        return res.status(404).json({ message: 'Bibit tidak ditemukan' }); 
+ 
+    bibit[bibitIndex] = { 
+        ...bibit[bibitIndex], 
+        namabibit: req.body.namabibit || bibit[bibitIndex].namabibit, 
+        jenisBibit: req.body.jenisBibit || bibit[bibitIndex].jenisBibit,
+        JumlahStok: req.body.JumlahStok || bibit[bibitIndex].JumlahStok, 
+        tahun: req.body.tahun || bibit[bibitIndex].tahun, 
+    }; 
+ 
+    res.status(200).json({ 
+        message: `Tugas dengan ID '${req.params.id}' telah diperbarui`, 
+        updatedBibit: bibit[bibitIndex], 
+    }); 
+}); 
+ 
