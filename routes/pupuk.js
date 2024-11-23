@@ -17,3 +17,8 @@ const pupuk = [
         tahun: 2017
     },
 ];
+router.get("/", (req, res) => {
+    res.send(pupuk);
+});
+
+
