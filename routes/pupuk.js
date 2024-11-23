@@ -35,3 +35,23 @@ router.post('/', (req, res) => {
     res.status(201).json(newpupuk); 
 }); 
  
+router.put('/:id', (req, res) => { 
+    const pupukIndex = pupuk.findIndex(t => t.id === parseInt(req.params.id)); 
+    if (!pupukIndex === -1) 
+        return res.status(404).json({ message: 'pupuk tidak ditemukan' }); 
+ 
+    pupuk[pupukIndex] = { 
+        ...pupuk[pupukIndex], 
+        namapupuk: req.body.namapupuk || pupuk[pupukIndex].namapupuk, 
+        jenispupuk: req.body.jenispupuk || pupuk[pupukIndex].jenispupuk,
+        jumlahstok: req.body.jumlahstok || pupuk[pupukIndex].jumlahstok,
+        tahun: req.body.tahun || pupuk[pupukIndex].tahun, 
+    }; 
+ 
+    res.status(200).json({ 
+        message: `Tugas dengan ID '${req.params.id}' telah diperbarui`, 
+        updatedpupuk: pupuk[pupukIndex], 
+    }); 
+}); 
+ 
+
