@@ -9,3 +9,6 @@ const PORT = 9000;
 //const express = require('express');
 //const hewanRoutes = require('./routes/hewan.js');
 
+app.use(bodyParser.json());
+app.use(express.json());
+
